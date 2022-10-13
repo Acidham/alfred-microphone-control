@@ -60,6 +60,16 @@
 				<key>vitoclose</key>
 				<false/>
 			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>65254BAE-E8F3-4144-9931-D2CD4D2CB0A0</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
 		</array>
 		<key>46BA7889-3061-4B93-8BB3-5F74FA43D32B</key>
 		<array>
@@ -134,7 +144,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Microphone Mute/Unmute</string>
+	<string>Microphone Control</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -194,6 +204,27 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Microphone</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>88CF2EA9-1E40-4BDA-BF38-418490EE4040</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -212,6 +243,40 @@ echo $current_vol | grep -o '[0-9]\+'</string>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>6A77BB09-EEE1-44B6-944F-179C00BAED09</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>#!/bin/zsh
+
+current_vol=$(osascript -e 'input volume of (get volume settings)')
+current_vol=$current_vol | grep -o '[0-9]\+'
+
+if [ $current_vol -eq 0 ]; then
+	switch="OFF"
+else
+	switch="ON"
+fi
+
+echo $switch</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>5</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>5DFE9BD8-5A95-41F0-8E83-58D5E808F922</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -277,61 +342,6 @@ echo $current_vol | grep -o '[0-9]\+'</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>{query}</string>
-				<key>title</key>
-				<string>Microphone</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>88CF2EA9-1E40-4BDA-BF38-418490EE4040</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>#!/bin/zsh
-
-current_vol=$(osascript -e 'input volume of (get volume settings)')
-current_vol=$current_vol | grep -o '[0-9]\+'
-
-if [ $current_vol -eq 0 ]; then
-	switch="OFF"
-else
-	switch="ON"
-fi
-
-echo $switch</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>5</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>5DFE9BD8-5A95-41F0-8E83-58D5E808F922</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>type</key>
 				<integer>6</integer>
 			</dict>
@@ -365,31 +375,128 @@ echo $switch</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string># THESE VARIABLES MUST BE SET. SEE THE ONEUPDATER README FOR AN EXPLANATION OF EACH.
+readonly remote_info_plist="https://raw.githubusercontent.com/Acidham/alfred-microphone-control/main/src/info.plist"
+readonly workflow_url="Acidham/alfred-microphone-control"
+readonly download_type='github_release'
+readonly frequency_check='4'
+
+# FROM HERE ON, CODE SHOULD BE LEFT UNTOUCHED!
+function abort {
+  echo "${1}" &gt;&amp;2
+  exit 1
+}
+
+function url_exists {
+  curl --silent --location --output /dev/null --fail --range 0-0 "${1}"
+}
+
+function notification {
+  readonly local notificator="$(find . -type d -name 'Notificator.app')"
+  if [[ -n "${notificator}" ]]; then
+    "${notificator}/Contents/Resources/Scripts/notificator" --message "${1}" --title "${alfred_workflow_name}" --subtitle 'A new version is available'
+    return
+  fi
+
+  readonly local terminal_notifier="$(find . -type f -name 'terminal-notifier')"
+  if [[ -n "${terminal_notifier}" ]]; then
+    "${terminal_notifier}" -title "${alfred_workflow_name}" -subtitle 'A new version is available' -message "${1}"
+    return
+  fi
+
+  osascript -e "display notification \"${1}\" with title \"${alfred_workflow_name}\" subtitle \"A new version is available\""
+}
+
+# Local sanity checks
+readonly local_info_plist='info.plist'
+readonly local_version="$(/usr/libexec/PlistBuddy -c 'print version' "${local_info_plist}")"
+
+[[ -n "${local_version}" ]] || abort 'You need to set a workflow version in the configuration sheet.'
+[[ "${download_type}" =~ ^(direct|page|github_release)$ ]] || abort "'download_type' (${download_type}) needs to be one of 'direct', 'page', or 'github_release'."
+[[ "${frequency_check}" =~ ^[0-9]+$ ]] || abort "'frequency_check' (${frequency_check}) needs to be a number."
+
+# Check for updates
+if [[ $(find "${local_info_plist}" -mtime +"${frequency_check}"d) ]]; then
+  if ! url_exists "${remote_info_plist}"; then abort "'remote_info_plist' (${remote_info_plist}) appears to not be reachable."; fi # Remote sanity check
+
+  readonly tmp_file="$(mktemp)"
+  curl --silent --location --output "${tmp_file}" "${remote_info_plist}"
+  readonly remote_version="$(/usr/libexec/PlistBuddy -c 'print version' "${tmp_file}")"
+
+  if [[ "${local_version}" == "${remote_version}" ]]; then
+    touch "${local_info_plist}" # Reset timer by touching local file
+    exit 0
+  fi
+
+  if [[ "${download_type}" == 'page' ]]; then
+    notification 'Opening download page…'
+    open "${workflow_url}"
+    exit 0
+  fi
+
+  download_url="$([[ "${download_type}" == 'github_release' ]] &amp;&amp; curl --silent "https://api.github.com/repos/${workflow_url}/releases/latest" | grep 'browser_download_url' | head -1 | sed -E 's/.*browser_download_url": "(.*)"/\1/' || echo "${workflow_url}")"
+
+  if url_exists "${download_url}"; then
+    notification 'Downloading and installing…'
+    curl --silent --location --output "${HOME}/Downloads/${alfred_workflow_name}.alfredworkflow" "${download_url}"
+    open "${HOME}/Downloads/${alfred_workflow_name}.alfredworkflow"
+  else
+    abort "'workflow_url' (${download_url}) appears to not be reachable."
+  fi
+fi</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>65254BAE-E8F3-4144-9931-D2CD4D2CB0A0</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string># Microphone Controll
+
+* Mutes and Unmutes the microphone by pressing F12
+
+# How does it work?
+
+* Microphone controller sets the input volume to 0 or to 100</string>
 	<key>uidata</key>
 	<dict>
 		<key>195000E0-AFE5-464A-9BB6-62BC6DF1B846</key>
 		<dict>
 			<key>xpos</key>
-			<real>1020</real>
+			<real>1025</real>
 			<key>ypos</key>
-			<real>215</real>
+			<real>220</real>
 		</dict>
 		<key>2B6B8511-5E2D-495F-BC0A-29EBE95528AE</key>
 		<dict>
 			<key>xpos</key>
-			<real>485</real>
+			<real>470</real>
 			<key>ypos</key>
-			<real>130</real>
+			<real>210</real>
 		</dict>
 		<key>463BEEA7-B0F2-452C-8362-0A2E53A1E12E</key>
 		<dict>
 			<key>xpos</key>
-			<real>50</real>
+			<real>35</real>
 			<key>ypos</key>
-			<real>110</real>
+			<real>190</real>
 		</dict>
 		<key>46BA7889-3061-4B93-8BB3-5F74FA43D32B</key>
 		<dict>
@@ -405,35 +512,46 @@ echo $switch</string>
 			<key>xpos</key>
 			<real>860</real>
 			<key>ypos</key>
-			<real>185</real>
+			<real>190</real>
+		</dict>
+		<key>65254BAE-E8F3-4144-9931-D2CD4D2CB0A0</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>12</integer>
+			<key>note</key>
+			<string>OneUpdater</string>
+			<key>xpos</key>
+			<real>230</real>
+			<key>ypos</key>
+			<real>430</real>
 		</dict>
 		<key>6A77BB09-EEE1-44B6-944F-179C00BAED09</key>
 		<dict>
 			<key>xpos</key>
-			<real>245</real>
+			<real>230</real>
 			<key>ypos</key>
-			<real>110</real>
+			<real>190</real>
 		</dict>
 		<key>88CF2EA9-1E40-4BDA-BF38-418490EE4040</key>
 		<dict>
 			<key>xpos</key>
 			<real>1120</real>
 			<key>ypos</key>
-			<real>185</real>
+			<real>190</real>
 		</dict>
 		<key>B634D4E8-3134-4FC3-9034-2E71ED2524C6</key>
 		<dict>
 			<key>xpos</key>
-			<real>400</real>
+			<real>385</real>
 			<key>ypos</key>
-			<real>140</real>
+			<real>220</real>
 		</dict>
 		<key>DC231E7F-F4D6-4037-AA7F-AEFE285A5FFC</key>
 		<dict>
 			<key>note</key>
 			<string>ON</string>
 			<key>xpos</key>
-			<real>585</real>
+			<real>590</real>
 			<key>ypos</key>
 			<real>95</real>
 		</dict>
@@ -443,7 +561,7 @@ echo $switch</string>
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>0.9</string>
+	<string>1.0</string>
 	<key>webaddress</key>
 	<string></string>
 </dict>

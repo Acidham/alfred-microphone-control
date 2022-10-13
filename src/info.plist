@@ -12,7 +12,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>DC231E7F-F4D6-4037-AA7F-AEFE285A5FFC</string>
+				<string>6108F7D2-B8B2-405B-87E4-AA616359D806</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -38,7 +38,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>DC231E7F-F4D6-4037-AA7F-AEFE285A5FFC</string>
+				<string>6108F7D2-B8B2-405B-87E4-AA616359D806</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -50,7 +50,7 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
-				<string>46BA7889-3061-4B93-8BB3-5F74FA43D32B</string>
+				<string>D3F60A83-9A45-4082-A450-A98CFF876AFA</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -65,7 +65,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>DC231E7F-F4D6-4037-AA7F-AEFE285A5FFC</string>
+				<string>6108F7D2-B8B2-405B-87E4-AA616359D806</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -78,7 +78,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>6A77BB09-EEE1-44B6-944F-179C00BAED09</string>
+				<string>E79D236B-612D-473A-BD47-331B15805F6A</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -87,11 +87,11 @@
 				<false/>
 			</dict>
 		</array>
-		<key>46BA7889-3061-4B93-8BB3-5F74FA43D32B</key>
+		<key>6108F7D2-B8B2-405B-87E4-AA616359D806</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>5DFE9BD8-5A95-41F0-8E83-58D5E808F922</string>
+				<string>74D3D365-6F8E-4614-85E5-9D52E1505B4C</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -100,7 +100,7 @@
 				<false/>
 			</dict>
 		</array>
-		<key>5DFE9BD8-5A95-41F0-8E83-58D5E808F922</key>
+		<key>74D3D365-6F8E-4614-85E5-9D52E1505B4C</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
@@ -123,24 +123,11 @@
 				<false/>
 			</dict>
 		</array>
-		<key>6A77BB09-EEE1-44B6-944F-179C00BAED09</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>B634D4E8-3134-4FC3-9034-2E71ED2524C6</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>AF05C860-579D-49B0-A5EC-2BAFEDD2BBBB</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>46BA7889-3061-4B93-8BB3-5F74FA43D32B</string>
+				<string>D3F60A83-9A45-4082-A450-A98CFF876AFA</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -162,11 +149,11 @@
 				<false/>
 			</dict>
 		</array>
-		<key>DC231E7F-F4D6-4037-AA7F-AEFE285A5FFC</key>
+		<key>D3F60A83-9A45-4082-A450-A98CFF876AFA</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>5DFE9BD8-5A95-41F0-8E83-58D5E808F922</string>
+				<string>74D3D365-6F8E-4614-85E5-9D52E1505B4C</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -179,7 +166,20 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>46BA7889-3061-4B93-8BB3-5F74FA43D32B</string>
+				<string>D3F60A83-9A45-4082-A450-A98CFF876AFA</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>E79D236B-612D-473A-BD47-331B15805F6A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B634D4E8-3134-4FC3-9034-2E71ED2524C6</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -217,25 +217,19 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>osascript -e "set volume input volume 100"</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>5</integer>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+ set volume input volume 100
+end alfred_script</string>
+				<key>cachescript</key>
+				<true/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.action.applescript</string>
 			<key>uid</key>
-			<string>DC231E7F-F4D6-4037-AA7F-AEFE285A5FFC</string>
+			<string>6108F7D2-B8B2-405B-87E4-AA616359D806</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -261,30 +255,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>current_vol=$(osascript -e 'input volume of (get volume settings)')
-echo $current_vol | grep -o '[0-9]\+'</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>5</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>6A77BB09-EEE1-44B6-944F-179C00BAED09</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>lastpathcomponent</key>
 				<false/>
 				<key>onlyshowifquerypopulated</key>
@@ -306,36 +276,15 @@ echo $current_vol | grep -o '[0-9]\+'</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>#!/bin/zsh
-
-current_vol=$(osascript -e 'input volume of (get volume settings)')
-current_vol=$current_vol | grep -o '[0-9]\+'
-
-if [ $current_vol -eq 0 ]; then
-	switch="OFF"
-else
-	switch="ON"
-fi
-
-echo $switch</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
 				<key>type</key>
-				<integer>5</integer>
+				<integer>6</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.utility.transform</string>
 			<key>uid</key>
-			<string>5DFE9BD8-5A95-41F0-8E83-58D5E808F922</string>
+			<string>195000E0-AFE5-464A-9BB6-62BC6DF1B846</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -349,9 +298,11 @@ echo $switch</string>
 				<key>focusedappvariablename</key>
 				<string></string>
 				<key>hotkey</key>
-				<integer>0</integer>
+				<integer>111</integer>
 				<key>hotmod</key>
-				<integer>0</integer>
+				<integer>8388608</integer>
+				<key>hotstring</key>
+				<string>F12</string>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -365,6 +316,46 @@ echo $switch</string>
 			<string>463BEEA7-B0F2-452C-8362-0A2E53A1E12E</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+	set cur_vol to input volume of (get volume settings)
+	return cur_vol
+end alfred_script</string>
+				<key>cachescript</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>E79D236B-612D-473A-BD47-331B15805F6A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+	set cur_vol to input volume of (get volume settings)
+	if cur_vol is equal to 0 then
+		return "OFF"
+	else
+		return "ON"
+	end if
+end alfred_script</string>
+				<key>cachescript</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>74D3D365-6F8E-4614-85E5-9D52E1505B4C</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -409,19 +400,6 @@ echo $switch</string>
 			<string>alfred.workflow.utility.conditional</string>
 			<key>uid</key>
 			<string>2B6B8511-5E2D-495F-BC0A-29EBE95528AE</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>type</key>
-				<integer>6</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.transform</string>
-			<key>uid</key>
-			<string>195000E0-AFE5-464A-9BB6-62BC6DF1B846</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -532,29 +510,6 @@ fi</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>osascript -e "set volume input volume 0"</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>5</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>46BA7889-3061-4B93-8BB3-5F74FA43D32B</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
@@ -570,6 +525,23 @@ fi</string>
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
 			<string>AF05C860-579D-49B0-A5EC-2BAFEDD2BBBB</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+  set volume input volume 0
+end alfred_script</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>D3F60A83-9A45-4082-A450-A98CFF876AFA</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -611,7 +583,7 @@ fi</string>
 			<key>xpos</key>
 			<real>970</real>
 			<key>ypos</key>
-			<real>320</real>
+			<real>275</real>
 		</dict>
 		<key>2B6B8511-5E2D-495F-BC0A-29EBE95528AE</key>
 		<dict>
@@ -634,21 +606,14 @@ fi</string>
 			<key>ypos</key>
 			<real>290</real>
 		</dict>
-		<key>46BA7889-3061-4B93-8BB3-5F74FA43D32B</key>
+		<key>6108F7D2-B8B2-405B-87E4-AA616359D806</key>
 		<dict>
 			<key>note</key>
-			<string>OFF</string>
+			<string>ON</string>
 			<key>xpos</key>
-			<real>590</real>
+			<real>565</real>
 			<key>ypos</key>
-			<real>415</real>
-		</dict>
-		<key>5DFE9BD8-5A95-41F0-8E83-58D5E808F922</key>
-		<dict>
-			<key>xpos</key>
-			<real>805</real>
-			<key>ypos</key>
-			<real>290</real>
+			<real>155</real>
 		</dict>
 		<key>65254BAE-E8F3-4144-9931-D2CD4D2CB0A0</key>
 		<dict>
@@ -659,28 +624,30 @@ fi</string>
 			<key>xpos</key>
 			<real>1065</real>
 			<key>ypos</key>
-			<real>415</real>
+			<real>370</real>
 		</dict>
-		<key>6A77BB09-EEE1-44B6-944F-179C00BAED09</key>
+		<key>74D3D365-6F8E-4614-85E5-9D52E1505B4C</key>
 		<dict>
+			<key>note</key>
+			<string>CONFIRM</string>
 			<key>xpos</key>
-			<real>230</real>
+			<real>785</real>
 			<key>ypos</key>
-			<real>290</real>
+			<real>295</real>
 		</dict>
 		<key>88CF2EA9-1E40-4BDA-BF38-418490EE4040</key>
 		<dict>
 			<key>xpos</key>
 			<real>1065</real>
 			<key>ypos</key>
-			<real>290</real>
+			<real>245</real>
 		</dict>
 		<key>AF05C860-579D-49B0-A5EC-2BAFEDD2BBBB</key>
 		<dict>
 			<key>xpos</key>
-			<real>35</real>
+			<real>30</real>
 			<key>ypos</key>
-			<real>415</real>
+			<real>465</real>
 		</dict>
 		<key>B634D4E8-3134-4FC3-9034-2E71ED2524C6</key>
 		<dict>
@@ -689,21 +656,30 @@ fi</string>
 			<key>ypos</key>
 			<real>320</real>
 		</dict>
-		<key>DC231E7F-F4D6-4037-AA7F-AEFE285A5FFC</key>
+		<key>D3F60A83-9A45-4082-A450-A98CFF876AFA</key>
 		<dict>
 			<key>note</key>
-			<string>ON</string>
+			<string>OFF</string>
 			<key>xpos</key>
-			<real>590</real>
+			<real>555</real>
 			<key>ypos</key>
-			<real>160</real>
+			<real>465</real>
 		</dict>
 		<key>DF48D62C-DF86-43D1-857F-8797B2708483</key>
 		<dict>
 			<key>xpos</key>
-			<real>35</real>
+			<real>30</real>
 			<key>ypos</key>
-			<real>545</real>
+			<real>595</real>
+		</dict>
+		<key>E79D236B-612D-473A-BD47-331B15805F6A</key>
+		<dict>
+			<key>note</key>
+			<string>GET VOL</string>
+			<key>xpos</key>
+			<real>225</real>
+			<key>ypos</key>
+			<real>290</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
@@ -754,7 +730,7 @@ fi</string>
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>1.1.1</string>
+	<string>1.1.2</string>
 	<key>webaddress</key>
 	<string>https://github.com/Acidham/alfred-microphone-control/</string>
 </dict>

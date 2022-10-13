@@ -590,7 +590,7 @@ fi</string>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string># Microphone Controll
+	<string># Microphone Control
 
 * Mutes and Unmutes the microphone by pressing the Hotkey, or using the Keywords.
 
@@ -754,7 +754,7 @@ fi</string>
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>1.1</string>
+	<string>1.1.1</string>
 	<key>webaddress</key>
 	<string>https://github.com/Acidham/alfred-microphone-control/</string>
 </dict>

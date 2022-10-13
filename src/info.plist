@@ -3,11 +3,24 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string></string>
+	<string>acidham.alfredworkflow.microphonecontrol</string>
 	<key>category</key>
 	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
+		<key>10828EBF-9808-4DA5-8808-078C0BBD13D5</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>DC231E7F-F4D6-4037-AA7F-AEFE285A5FFC</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>195000E0-AFE5-464A-9BB6-62BC6DF1B846</key>
 		<array>
 			<dict>
@@ -48,11 +61,11 @@
 				<false/>
 			</dict>
 		</array>
-		<key>463BEEA7-B0F2-452C-8362-0A2E53A1E12E</key>
+		<key>42F75856-8A29-4336-8BD7-4704D831CBB3</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>6A77BB09-EEE1-44B6-944F-179C00BAED09</string>
+				<string>DC231E7F-F4D6-4037-AA7F-AEFE285A5FFC</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -60,9 +73,12 @@
 				<key>vitoclose</key>
 				<false/>
 			</dict>
+		</array>
+		<key>463BEEA7-B0F2-452C-8362-0A2E53A1E12E</key>
+		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>65254BAE-E8F3-4144-9931-D2CD4D2CB0A0</string>
+				<string>6A77BB09-EEE1-44B6-944F-179C00BAED09</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -96,12 +112,35 @@
 				<key>vitoclose</key>
 				<false/>
 			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>65254BAE-E8F3-4144-9931-D2CD4D2CB0A0</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
 		</array>
 		<key>6A77BB09-EEE1-44B6-944F-179C00BAED09</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>B634D4E8-3134-4FC3-9034-2E71ED2524C6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>AF05C860-579D-49B0-A5EC-2BAFEDD2BBBB</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>46BA7889-3061-4B93-8BB3-5F74FA43D32B</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -136,6 +175,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>DF48D62C-DF86-43D1-857F-8797B2708483</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>46BA7889-3061-4B93-8BB3-5F74FA43D32B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Acidham</string>
@@ -147,6 +199,21 @@
 	<string>Microphone Control</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>availableviaurlhandler</key>
+				<false/>
+				<key>triggerid</key>
+				<string>unmute</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.external</string>
+			<key>uid</key>
+			<string>42F75856-8A29-4336-8BD7-4704D831CBB3</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -173,31 +240,45 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>action</key>
-				<integer>0</integer>
-				<key>argument</key>
-				<integer>0</integer>
-				<key>focusedappvariable</key>
-				<false/>
-				<key>focusedappvariablename</key>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>{var:unmute_keyword}</string>
+				<key>subtext</key>
 				<string></string>
-				<key>hotkey</key>
-				<integer>111</integer>
-				<key>hotmod</key>
-				<integer>8388608</integer>
-				<key>hotstring</key>
-				<string>F12</string>
-				<key>leftcursor</key>
+				<key>text</key>
+				<string>Unmute Microphone</string>
+				<key>withspace</key>
 				<false/>
-				<key>modsmode</key>
-				<integer>0</integer>
-				<key>relatedAppsMode</key>
-				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.trigger.hotkey</string>
+			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>463BEEA7-B0F2-452C-8362-0A2E53A1E12E</string>
+			<string>10828EBF-9808-4DA5-8808-078C0BBD13D5</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>current_vol=$(osascript -e 'input volume of (get volume settings)')
+echo $current_vol | grep -o '[0-9]\+'</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>5</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>6A77BB09-EEE1-44B6-944F-179C00BAED09</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -230,30 +311,6 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>current_vol=$(osascript -e 'input volume of (get volume settings)')
-echo $current_vol | grep -o '[0-9]\+'</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>5</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>6A77BB09-EEE1-44B6-944F-179C00BAED09</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
 				<string>#!/bin/zsh
 
 current_vol=$(osascript -e 'input volume of (get volume settings)')
@@ -277,6 +334,35 @@ echo $switch</string>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>5DFE9BD8-5A95-41F0-8E83-58D5E808F922</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>463BEEA7-B0F2-452C-8362-0A2E53A1E12E</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -335,7 +421,7 @@ echo $switch</string>
 			<key>type</key>
 			<string>alfred.workflow.utility.transform</string>
 			<key>uid</key>
-			<string>B634D4E8-3134-4FC3-9034-2E71ED2524C6</string>
+			<string>195000E0-AFE5-464A-9BB6-62BC6DF1B846</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -348,32 +434,9 @@ echo $switch</string>
 			<key>type</key>
 			<string>alfred.workflow.utility.transform</string>
 			<key>uid</key>
-			<string>195000E0-AFE5-464A-9BB6-62BC6DF1B846</string>
+			<string>B634D4E8-3134-4FC3-9034-2E71ED2524C6</string>
 			<key>version</key>
 			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>osascript -e "set volume input volume 0"</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>5</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>46BA7889-3061-4B93-8BB3-5F74FA43D32B</string>
-			<key>version</key>
-			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -466,37 +529,110 @@ fi</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>osascript -e "set volume input volume 0"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>5</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>46BA7889-3061-4B93-8BB3-5F74FA43D32B</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>{var:mute_keyword}</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Mute Microphone</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>AF05C860-579D-49B0-A5EC-2BAFEDD2BBBB</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>availableviaurlhandler</key>
+				<false/>
+				<key>triggerid</key>
+				<string>mute</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.external</string>
+			<key>uid</key>
+			<string>DF48D62C-DF86-43D1-857F-8797B2708483</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string># Microphone Controll
 
-* Mutes and Unmutes the microphone by pressing F12
+* Mutes and Unmutes the microphone by pressing the Hotkey, or using the Keywords.
 
 # How does it work?
 
 * Microphone controller sets the input volume to 0 or to 100</string>
 	<key>uidata</key>
 	<dict>
+		<key>10828EBF-9808-4DA5-8808-078C0BBD13D5</key>
+		<dict>
+			<key>xpos</key>
+			<real>30</real>
+			<key>ypos</key>
+			<real>160</real>
+		</dict>
 		<key>195000E0-AFE5-464A-9BB6-62BC6DF1B846</key>
 		<dict>
 			<key>xpos</key>
-			<real>1025</real>
+			<real>970</real>
 			<key>ypos</key>
-			<real>220</real>
+			<real>320</real>
 		</dict>
 		<key>2B6B8511-5E2D-495F-BC0A-29EBE95528AE</key>
 		<dict>
 			<key>xpos</key>
 			<real>470</real>
 			<key>ypos</key>
-			<real>210</real>
+			<real>310</real>
+		</dict>
+		<key>42F75856-8A29-4336-8BD7-4704D831CBB3</key>
+		<dict>
+			<key>xpos</key>
+			<real>30</real>
+			<key>ypos</key>
+			<real>30</real>
 		</dict>
 		<key>463BEEA7-B0F2-452C-8362-0A2E53A1E12E</key>
 		<dict>
 			<key>xpos</key>
 			<real>35</real>
 			<key>ypos</key>
-			<real>190</real>
+			<real>290</real>
 		</dict>
 		<key>46BA7889-3061-4B93-8BB3-5F74FA43D32B</key>
 		<dict>
@@ -505,14 +641,14 @@ fi</string>
 			<key>xpos</key>
 			<real>590</real>
 			<key>ypos</key>
-			<real>285</real>
+			<real>415</real>
 		</dict>
 		<key>5DFE9BD8-5A95-41F0-8E83-58D5E808F922</key>
 		<dict>
 			<key>xpos</key>
-			<real>860</real>
+			<real>805</real>
 			<key>ypos</key>
-			<real>190</real>
+			<real>290</real>
 		</dict>
 		<key>65254BAE-E8F3-4144-9931-D2CD4D2CB0A0</key>
 		<dict>
@@ -521,30 +657,37 @@ fi</string>
 			<key>note</key>
 			<string>OneUpdater</string>
 			<key>xpos</key>
-			<real>230</real>
+			<real>1065</real>
 			<key>ypos</key>
-			<real>430</real>
+			<real>415</real>
 		</dict>
 		<key>6A77BB09-EEE1-44B6-944F-179C00BAED09</key>
 		<dict>
 			<key>xpos</key>
 			<real>230</real>
 			<key>ypos</key>
-			<real>190</real>
+			<real>290</real>
 		</dict>
 		<key>88CF2EA9-1E40-4BDA-BF38-418490EE4040</key>
 		<dict>
 			<key>xpos</key>
-			<real>1120</real>
+			<real>1065</real>
 			<key>ypos</key>
-			<real>190</real>
+			<real>290</real>
+		</dict>
+		<key>AF05C860-579D-49B0-A5EC-2BAFEDD2BBBB</key>
+		<dict>
+			<key>xpos</key>
+			<real>35</real>
+			<key>ypos</key>
+			<real>415</real>
 		</dict>
 		<key>B634D4E8-3134-4FC3-9034-2E71ED2524C6</key>
 		<dict>
 			<key>xpos</key>
 			<real>385</real>
 			<key>ypos</key>
-			<real>220</real>
+			<real>320</real>
 		</dict>
 		<key>DC231E7F-F4D6-4037-AA7F-AEFE285A5FFC</key>
 		<dict>
@@ -553,16 +696,66 @@ fi</string>
 			<key>xpos</key>
 			<real>590</real>
 			<key>ypos</key>
-			<real>95</real>
+			<real>160</real>
+		</dict>
+		<key>DF48D62C-DF86-43D1-857F-8797B2708483</key>
+		<dict>
+			<key>xpos</key>
+			<real>35</real>
+			<key>ypos</key>
+			<real>545</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
-	<array/>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>mic mute</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>Mute Keyword</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>mute_keyword</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>mic unmute</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>Unmute Keyword</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>unmute_keyword</string>
+		</dict>
+	</array>
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>webaddress</key>
-	<string></string>
+	<string>https://github.com/Acidham/alfred-microphone-control/</string>
 </dict>
 </plist>

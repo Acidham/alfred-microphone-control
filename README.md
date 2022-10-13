@@ -1,5 +1,6 @@
 # Alfred Microphone Control
-* Alfred Workflow to mute and unmute the microphone by pressing `F12`
+
+* Alfred Workflow to mute and unmute the microphone by pressing the Hotkey, or using the Keywords.
 
 # How does it work?
 

@@ -112,16 +112,6 @@
 				<key>vitoclose</key>
 				<false/>
 			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>65254BAE-E8F3-4144-9931-D2CD4D2CB0A0</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
 		</array>
 		<key>AF05C860-579D-49B0-A5EC-2BAFEDD2BBBB</key>
 		<array>
@@ -255,40 +245,6 @@ end alfred_script</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>{query}</string>
-				<key>title</key>
-				<string>Microphone</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>88CF2EA9-1E40-4BDA-BF38-418490EE4040</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>type</key>
-				<integer>6</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.transform</string>
-			<key>uid</key>
-			<string>195000E0-AFE5-464A-9BB6-62BC6DF1B846</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>action</key>
 				<integer>0</integer>
 				<key>argument</key>
@@ -332,6 +288,27 @@ end alfred_script</string>
 			<string>alfred.workflow.action.applescript</string>
 			<key>uid</key>
 			<string>E79D236B-612D-473A-BD47-331B15805F6A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Microphone</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>88CF2EA9-1E40-4BDA-BF38-418490EE4040</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -419,93 +396,32 @@ end alfred_script</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>0</integer>
-				<key>script</key>
-				<string># THESE VARIABLES MUST BE SET. SEE THE ONEUPDATER README FOR AN EXPLANATION OF EACH.
-readonly remote_info_plist="https://raw.githubusercontent.com/Acidham/alfred-microphone-control/main/src/info.plist"
-readonly workflow_url="Acidham/alfred-microphone-control"
-readonly download_type='github_release'
-readonly frequency_check='4'
-
-# FROM HERE ON, CODE SHOULD BE LEFT UNTOUCHED!
-function abort {
-  echo "${1}" &gt;&amp;2
-  exit 1
-}
-
-function url_exists {
-  curl --silent --location --output /dev/null --fail --range 0-0 "${1}"
-}
-
-function notification {
-  readonly local notificator="$(find . -type d -name 'Notificator.app')"
-  if [[ -n "${notificator}" ]]; then
-    "${notificator}/Contents/Resources/Scripts/notificator" --message "${1}" --title "${alfred_workflow_name}" --subtitle 'A new version is available'
-    return
-  fi
-
-  readonly local terminal_notifier="$(find . -type f -name 'terminal-notifier')"
-  if [[ -n "${terminal_notifier}" ]]; then
-    "${terminal_notifier}" -title "${alfred_workflow_name}" -subtitle 'A new version is available' -message "${1}"
-    return
-  fi
-
-  osascript -e "display notification \"${1}\" with title \"${alfred_workflow_name}\" subtitle \"A new version is available\""
-}
-
-# Local sanity checks
-readonly local_info_plist='info.plist'
-readonly local_version="$(/usr/libexec/PlistBuddy -c 'print version' "${local_info_plist}")"
-
-[[ -n "${local_version}" ]] || abort 'You need to set a workflow version in the configuration sheet.'
-[[ "${download_type}" =~ ^(direct|page|github_release)$ ]] || abort "'download_type' (${download_type}) needs to be one of 'direct', 'page', or 'github_release'."
-[[ "${frequency_check}" =~ ^[0-9]+$ ]] || abort "'frequency_check' (${frequency_check}) needs to be a number."
-
-# Check for updates
-if [[ $(find "${local_info_plist}" -mtime +"${frequency_check}"d) ]]; then
-  if ! url_exists "${remote_info_plist}"; then abort "'remote_info_plist' (${remote_info_plist}) appears to not be reachable."; fi # Remote sanity check
-
-  readonly tmp_file="$(mktemp)"
-  curl --silent --location --output "${tmp_file}" "${remote_info_plist}"
-  readonly remote_version="$(/usr/libexec/PlistBuddy -c 'print version' "${tmp_file}")"
-
-  if [[ "${local_version}" == "${remote_version}" ]]; then
-    touch "${local_info_plist}" # Reset timer by touching local file
-    exit 0
-  fi
-
-  if [[ "${download_type}" == 'page' ]]; then
-    notification 'Opening download page…'
-    open "${workflow_url}"
-    exit 0
-  fi
-
-  download_url="$([[ "${download_type}" == 'github_release' ]] &amp;&amp; curl --silent "https://api.github.com/repos/${workflow_url}/releases/latest" | grep 'browser_download_url' | head -1 | sed -E 's/.*browser_download_url": "(.*)"/\1/' || echo "${workflow_url}")"
-
-  if url_exists "${download_url}"; then
-    notification 'Downloading and installing…'
-    curl --silent --location --output "${HOME}/Downloads/${alfred_workflow_name}.alfredworkflow" "${download_url}"
-    open "${HOME}/Downloads/${alfred_workflow_name}.alfredworkflow"
-  else
-    abort "'workflow_url' (${download_url}) appears to not be reachable."
-  fi
-fi</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
 				<key>type</key>
-				<integer>0</integer>
+				<integer>6</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.utility.transform</string>
 			<key>uid</key>
-			<string>65254BAE-E8F3-4144-9931-D2CD4D2CB0A0</string>
+			<string>195000E0-AFE5-464A-9BB6-62BC6DF1B846</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+  set volume input volume 0
+end alfred_script</string>
+				<key>cachescript</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>D3F60A83-9A45-4082-A450-A98CFF876AFA</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -525,23 +441,6 @@ fi</string>
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
 			<string>AF05C860-579D-49B0-A5EC-2BAFEDD2BBBB</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>applescript</key>
-				<string>on alfred_script(q)
-  set volume input volume 0
-end alfred_script</string>
-				<key>cachescript</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.applescript</string>
-			<key>uid</key>
-			<string>D3F60A83-9A45-4082-A450-A98CFF876AFA</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -583,7 +482,7 @@ end alfred_script</string>
 			<key>xpos</key>
 			<real>970</real>
 			<key>ypos</key>
-			<real>275</real>
+			<real>325</real>
 		</dict>
 		<key>2B6B8511-5E2D-495F-BC0A-29EBE95528AE</key>
 		<dict>
@@ -615,17 +514,6 @@ end alfred_script</string>
 			<key>ypos</key>
 			<real>155</real>
 		</dict>
-		<key>65254BAE-E8F3-4144-9931-D2CD4D2CB0A0</key>
-		<dict>
-			<key>colorindex</key>
-			<integer>12</integer>
-			<key>note</key>
-			<string>OneUpdater</string>
-			<key>xpos</key>
-			<real>1065</real>
-			<key>ypos</key>
-			<real>370</real>
-		</dict>
 		<key>74D3D365-6F8E-4614-85E5-9D52E1505B4C</key>
 		<dict>
 			<key>note</key>
@@ -640,7 +528,7 @@ end alfred_script</string>
 			<key>xpos</key>
 			<real>1065</real>
 			<key>ypos</key>
-			<real>245</real>
+			<real>295</real>
 		</dict>
 		<key>AF05C860-579D-49B0-A5EC-2BAFEDD2BBBB</key>
 		<dict>
@@ -661,7 +549,7 @@ end alfred_script</string>
 			<key>note</key>
 			<string>OFF</string>
 			<key>xpos</key>
-			<real>555</real>
+			<real>565</real>
 			<key>ypos</key>
 			<real>465</real>
 		</dict>
@@ -730,7 +618,7 @@ end alfred_script</string>
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>1.1.2</string>
+	<string>1.2.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/Acidham/alfred-microphone-control/</string>
 </dict>
